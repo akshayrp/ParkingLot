@@ -1,15 +1,17 @@
 package com.parkingLot;
-
 public class ParkingLotSystem {
+    public final int numberOfSlotLines = 10;
+    public final int numberOfSlotPerLine = 10;
+
     CarDao[][] slot;
 
     public ParkingLotSystem() {
-        this.slot = new CarDao[10][10];
+        this.slot = new CarDao[numberOfSlotLines][numberOfSlotPerLine];
     }
 
     public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType) {
-        for (int line = 1; line <= 10; line++) {
-            for (int slot = firstSlotNumberOfParkingType; slot <= 10; slot++) {
+        for (int line = 1; line <= numberOfSlotLines; line++) {
+            for (int slot = firstSlotNumberOfParkingType; slot <= numberOfSlotLines; slot++) {
                 if (this.slot[line][slot] == null) {
                     Integer[] emptySlot = {line, slot};
                     return emptySlot;
