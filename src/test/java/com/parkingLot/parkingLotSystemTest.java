@@ -25,7 +25,7 @@ public class parkingLotSystemTest {
     }
 
     @Test
-    public void givenCarDetail_ShouldStoreCarDetails() {
+    public void givenCarDetail_ShouldParkCarOnAnEmptySlot() {
         int firstSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.startingSlot;
         int lastSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.endingSlot;
         Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType,lastSlotNumberOfParkingType);
