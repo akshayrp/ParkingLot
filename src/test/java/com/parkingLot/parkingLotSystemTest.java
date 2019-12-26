@@ -16,7 +16,7 @@ public class parkingLotSystemTest {
     }
 
     @Test
-    public void givenSlotNumber_CheckIfEmpty() {
+    public void givenSlotNumber_CheckIfEmpty() throws ParkingSlotException {
         int firstSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.startingSlot;
         int lastSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.endingSlot;
         Integer[] expectedEmptySlot = {1,8};
@@ -25,11 +25,30 @@ public class parkingLotSystemTest {
     }
 
     @Test
-    public void givenCarDetail_ShouldParkCarOnAnEmptySlot() {
+    public void givenCarDetail_ShouldParkCarOnAnEmptySlot() throws ParkingSlotException {
         int firstSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.startingSlot;
         int lastSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.endingSlot;
         Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType,lastSlotNumberOfParkingType);
         CarDao carDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlot);
         parkingLotSystem.parkCar(emptySlot, carDetails);
+    }
+
+    @Test
+    public void givenMultipleCarDetails_ShouldParkCarOnAnEmptySlotBasedOnParkingType() throws ParkingSlotException {
+        int firstSlotNumberOfParkingTypeFirstCar = ParkingType.LARGE_VEHICLE.startingSlot;
+        int lastSlotNumberOfParkingTypeFirstCar = ParkingType.LARGE_VEHICLE.endingSlot;
+        Integer[] emptySlotForFirstCar = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingTypeFirstCar,lastSlotNumberOfParkingTypeFirstCar);
+        CarDao FirstCarDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlotForFirstCar);
+        parkingLotSystem.parkCar(emptySlotForFirstCar, FirstCarDetails);
+        int firstSlotNumberOfParkingTypeSecondCar = ParkingType.SMALL_VEHICLE.startingSlot;
+        int lastSlotNumberOfParkingTypeSecondCar = ParkingType.SMALL_VEHICLE.endingSlot;
+        Integer[] emptySlotForSecondCar = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingTypeSecondCar,lastSlotNumberOfParkingTypeSecondCar);
+        CarDao SecondCarDetails = new CarDao("MH01 AJ 1113", "duster", "white", new Date(), ParkingType.SMALL_VEHICLE, emptySlotForSecondCar);
+        parkingLotSystem.parkCar(emptySlotForSecondCar, SecondCarDetails);
+        int firstSlotNumberOfParkingTypeThirdCar = ParkingType.HANDICAP.startingSlot;
+        int lastSlotNumberOfParkingTypeThirdCar = ParkingType.HANDICAP.endingSlot;
+        Integer[] emptySlotForThirdCar = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingTypeThirdCar,lastSlotNumberOfParkingTypeThirdCar);
+        CarDao thirdCarDetails = new CarDao("MH01 AJ 1113", "duster", "white", new Date(), ParkingType.SMALL_VEHICLE, emptySlotForThirdCar);
+        parkingLotSystem.parkCar(emptySlotForThirdCar, thirdCarDetails);
     }
 }

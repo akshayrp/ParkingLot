@@ -5,9 +5,9 @@ public enum ParkingType {
 
     public final int startingSlot;
     public final int endingSlot;
+
     ParkingType(int startingSlot,int endingSlot) {
     this.startingSlot = startingSlot;
     this.endingSlot = endingSlot;
-
     }
 }

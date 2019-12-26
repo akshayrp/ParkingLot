@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.parkingLot.parkingLotSystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-24T12:28:30" hostname="bridgelabz" time="0.001">
+<testsuite name="com.parkingLot.parkingLotSystemTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-12-26T07:04:28" hostname="bridgelabz" time="0.005">
   <properties/>
-  <testcase name="givenCarDetails_ShouldReturnCount100" classname="com.parkingLot.parkingLotSystemTest" time="0.001"/>
+  <testcase name="givenMultipleCarDetails_ShouldParkCarOnAnEmptySlotBasedOnParkingType" classname="com.parkingLot.parkingLotSystemTest" time="0.002"/>
+  <testcase name="givenArrayAllocation_ShouldReturnCount100" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
+  <testcase name="givenSlotNumber_CheckIfEmpty" classname="com.parkingLot.parkingLotSystemTest" time="0.002"/>
+  <testcase name="givenCarDetail_ShouldParkCarOnAnEmptySlot" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

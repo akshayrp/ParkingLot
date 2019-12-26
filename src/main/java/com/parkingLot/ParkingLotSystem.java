@@ -9,7 +9,7 @@ public class ParkingLotSystem {
         this.slot = new CarDao[numberOfSlotLines][numberOfSlotPerLine];
     }
 
-    public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType, int lastSlotNumberOfParkingType) {
+    public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType, int lastSlotNumberOfParkingType) throws ParkingSlotException {
         for (int line = 1; line <= numberOfSlotLines; line++) {
             for (int slot = firstSlotNumberOfParkingType; slot <= lastSlotNumberOfParkingType; slot++) {
                 if (this.slot[line][slot] == null) {
@@ -18,7 +18,7 @@ public class ParkingLotSystem {
                 }
             }
         }
-        return null;
+        throw new ParkingSlotException(ParkingSlotException.ExceptionType.ALL_SLOTS_FULL,"all slots full,cannot park");
     }
 
     public void parkCar(Integer[] emptySlot, CarDao carDetails) {
