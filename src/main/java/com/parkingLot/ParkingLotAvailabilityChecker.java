@@ -19,18 +19,14 @@ public class ParkingLotAvailabilityChecker {
         throw new ParkingSlotException(ParkingSlotException.ExceptionType.ALL_SLOTS_FULL, "all slots full,cannot park");
     }
 
-    public boolean parkCar(int slotNumber, CarDao carDetails) throws ParkingSlotException {
-        if (detailsOfCarInSlot.get(slotNumber) == null) {
-            addAndRemoveCarDetails(slotNumber, carDetails);
+    public boolean parkCar(int slotNumber, CarDao carDetails) {
+            addAndRemoveCarDetails(slotNumber,carDetails);
             return true;
-        }
-        throw new ParkingSlotException(ParkingSlotException.ExceptionType.SLOT_IS_OCCUPIED, "This Slot is occupied !! " +
-                "Try Another one");
     }
 
     public boolean unParkCar(Integer slotNumber, CarDao carDetails) {
         if (detailsOfCarInSlot.get(slotNumber) != null) {
-            addAndRemoveCarDetails(slotNumber,null);
+            addAndRemoveCarDetails(slotNumber, null);
             return true;
         }
         return false;
