@@ -64,7 +64,7 @@ public class parkingLotSystemTest {
             int emptySlotForFirstCar = parkingLotSystem.giveEmptySlot();
             CarDao firstCarDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlotForFirstCar);
             parkingLotSystem.parkCar(emptySlotForFirstCar, firstCarDetails);
-            Assert.assertTrue(parkingLotSystem.unParkCar(emptySlotForFirstCar));
+            Assert.assertTrue(parkingLotSystem.unParkCar(emptySlotForFirstCar,firstCarDetails));
         } catch (ParkingSlotException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class parkingLotSystemTest {
         try {
             int emptySlotForFirstCar = parkingLotSystem.giveEmptySlot();
             CarDao firstCarDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlotForFirstCar);
-            Assert.assertFalse(parkingLotSystem.unParkCar(emptySlotForFirstCar));
+            Assert.assertFalse(parkingLotSystem.unParkCar(emptySlotForFirstCar, firstCarDetails));
         } catch (ParkingSlotException e) {
             e.printStackTrace();
         }

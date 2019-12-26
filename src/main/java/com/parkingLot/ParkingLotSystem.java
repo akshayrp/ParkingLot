@@ -27,6 +27,7 @@ public class ParkingLotSystem {
 
     public boolean parkCar(int slotNumber, CarDao carDetails) throws ParkingSlotException {
         if (detailsOfCarInSlot.get(slotNumber) == null) {
+            detailsOfCarInSlot.remove(slotNumber);
             detailsOfCarInSlot.add(slotNumber, carDetails);
             return true;
         }
@@ -34,9 +35,10 @@ public class ParkingLotSystem {
                 "Try Another one");
     }
 
-    public boolean unParkCar(Integer slotNumber) {
+    public boolean unParkCar(Integer slotNumber, CarDao carDetails) {
         if (detailsOfCarInSlot.get(slotNumber) != null) {
-            detailsOfCarInSlot.remove(slotNumber);
+            detailsOfCarInSlot.remove(carDetails);
+            detailsOfCarInSlot.add(slotNumber,null);
             return true;
         }
         return false;
