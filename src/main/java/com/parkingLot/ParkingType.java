@@ -1,10 +1,13 @@
 package com.parkingLot;
 
 public enum ParkingType {
-    HANDICAP(1),VIP(5),NORMAL(8);
+    HANDICAP(1,4),SMALL_VEHICLE(5,7),LARGE_VEHICLE(8,10);
 
     public final int startingSlot;
-    ParkingType(int startingSlot) {
+    public final int endingSlot;
+    ParkingType(int startingSlot,int endingSlot) {
     this.startingSlot = startingSlot;
+    this.endingSlot = endingSlot;
+
     }
 }

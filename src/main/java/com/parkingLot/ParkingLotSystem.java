@@ -9,9 +9,9 @@ public class ParkingLotSystem {
         this.slot = new CarDao[numberOfSlotLines][numberOfSlotPerLine];
     }
 
-    public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType) {
+    public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType, int lastSlotNumberOfParkingType) {
         for (int line = 1; line <= numberOfSlotLines; line++) {
-            for (int slot = firstSlotNumberOfParkingType; slot <= numberOfSlotLines; slot++) {
+            for (int slot = firstSlotNumberOfParkingType; slot <= lastSlotNumberOfParkingType; slot++) {
                 if (this.slot[line][slot] == null) {
                     Integer[] emptySlot = {line, slot};
                     return emptySlot;

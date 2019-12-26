@@ -17,17 +17,19 @@ public class parkingLotSystemTest {
 
     @Test
     public void givenSlotNumber_CheckIfEmpty() {
-        int firstSlotNumberOfParkingType = ParkingType.NORMAL.startingSlot;
+        int firstSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.startingSlot;
+        int lastSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.endingSlot;
         Integer[] expectedEmptySlot = {1,8};
-        Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType);
+        Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType, lastSlotNumberOfParkingType);
         Assert.assertArrayEquals(expectedEmptySlot,emptySlot);
     }
 
     @Test
     public void givenCarDetail_ShouldStoreCarDetails() {
-        int firstSlotNumberOfParkingType = ParkingType.NORMAL.startingSlot;
-        Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType);
-        CarDao carDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.NORMAL, emptySlot);
+        int firstSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.startingSlot;
+        int lastSlotNumberOfParkingType = ParkingType.LARGE_VEHICLE.endingSlot;
+        Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType,lastSlotNumberOfParkingType);
+        CarDao carDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlot);
         parkingLotSystem.parkCar(emptySlot, carDetails);
     }
 }
