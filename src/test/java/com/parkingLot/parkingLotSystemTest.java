@@ -51,4 +51,24 @@ public class parkingLotSystemTest {
         CarDao thirdCarDetails = new CarDao("MH01 AJ 1113", "duster", "white", new Date(), ParkingType.SMALL_VEHICLE, emptySlotForThirdCar);
         parkingLotSystem.parkCar(emptySlotForThirdCar, thirdCarDetails);
     }
+
+    @Test
+    public void givenCarSlotNumber_WhenCarAvailable_UnParkCarShouldReturnTrue() throws ParkingSlotException {
+        int firstSlotNumberOfParkingTypeFirstCar = ParkingType.LARGE_VEHICLE.startingSlot;
+        int lastSlotNumberOfParkingTypeFirstCar = ParkingType.LARGE_VEHICLE.endingSlot;
+        Integer[] emptySlotForFirstCar = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingTypeFirstCar,lastSlotNumberOfParkingTypeFirstCar);
+        CarDao FirstCarDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlotForFirstCar);
+        parkingLotSystem.parkCar(emptySlotForFirstCar, FirstCarDetails);
+        Assert.assertTrue(parkingLotSystem.unParkCar(emptySlotForFirstCar));
+    }
+
+    @Test
+    public void givenCarSlotNumber_WhenCarNotAvailable_UnParkCarShouldReturnFalse() throws ParkingSlotException {
+        int firstSlotNumberOfParkingTypeFirstCar = ParkingType.LARGE_VEHICLE.startingSlot;
+        int lastSlotNumberOfParkingTypeFirstCar = ParkingType.LARGE_VEHICLE.endingSlot;
+        Integer[] emptySlotForFirstCar = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingTypeFirstCar,lastSlotNumberOfParkingTypeFirstCar);
+        CarDao FirstCarDetails = new CarDao("MH01 AJ 0123", "Toyota", "red", new Date(), ParkingType.LARGE_VEHICLE, emptySlotForFirstCar);
+        Assert.assertFalse(parkingLotSystem.unParkCar(emptySlotForFirstCar));
+    }
+
 }

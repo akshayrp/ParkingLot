@@ -24,4 +24,12 @@ public class ParkingLotSystem {
     public void parkCar(Integer[] emptySlot, CarDao carDetails) {
         slot[emptySlot[0]][emptySlot[1]] = carDetails;
     }
+
+    public boolean unParkCar(Integer[] slotNumber) {
+        if (slot[slotNumber[0]][slotNumber[1]] != null) {
+            slot[slotNumber[0]][slotNumber[1]] = null;
+            return true;
+        }
+        return false;
+    }
 }
