@@ -2,7 +2,7 @@ package com.parkingLot;
 
 public class ParkingSlotException extends Exception {
     public enum ExceptionType {
-        ALL_SLOTS_FULL
+        SLOT_IS_OCCUPIED, ALL_SLOTS_FULL
     }
 
     ExceptionType type;

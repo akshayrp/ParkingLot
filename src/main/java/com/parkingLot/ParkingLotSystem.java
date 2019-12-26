@@ -1,33 +1,42 @@
 package com.parkingLot;
-public class ParkingLotSystem {
-    public final int numberOfSlotLines = 10;
-    public final int numberOfSlotPerLine = 10;
 
-    CarDao[][] slot;
+import java.util.ArrayList;
+
+public class ParkingLotSystem {
+    ArrayList detailsOfCarInSlot;
 
     public ParkingLotSystem() {
-        this.slot = new CarDao[numberOfSlotLines][numberOfSlotPerLine];
+        this.detailsOfCarInSlot = new ArrayList<>();
+        initializeEmptySlots();
     }
 
-    public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType, int lastSlotNumberOfParkingType) throws ParkingSlotException {
-        for (int line = 1; line <= numberOfSlotLines; line++) {
-            for (int slot = firstSlotNumberOfParkingType; slot <= lastSlotNumberOfParkingType; slot++) {
-                if (this.slot[line][slot] == null) {
-                    Integer[] emptySlot = {line, slot};
-                    return emptySlot;
-                }
+    private void initializeEmptySlots() {
+        for (int slots = 0; slots < 5; slots++) {
+            detailsOfCarInSlot.add(null);
+        }
+    }
+
+    public int giveEmptySlot() throws ParkingSlotException {
+        for (int slotNumber = 1; slotNumber <= 5; slotNumber++) {
+            if (detailsOfCarInSlot.get(slotNumber) == null) {
+                return slotNumber;
             }
         }
-        throw new ParkingSlotException(ParkingSlotException.ExceptionType.ALL_SLOTS_FULL,"all slots full,cannot park");
+        throw new ParkingSlotException(ParkingSlotException.ExceptionType.ALL_SLOTS_FULL, "all slots full,cannot park");
     }
 
-    public void parkCar(Integer[] emptySlot, CarDao carDetails) {
-        slot[emptySlot[0]][emptySlot[1]] = carDetails;
+    public boolean parkCar(int slotNumber, CarDao carDetails) throws ParkingSlotException {
+        if (detailsOfCarInSlot.get(slotNumber) == null) {
+            detailsOfCarInSlot.add(slotNumber, carDetails);
+            return true;
+        }
+        throw new ParkingSlotException(ParkingSlotException.ExceptionType.SLOT_IS_OCCUPIED, "This Slot is occupied !! " +
+                "Try Another one");
     }
 
-    public boolean unParkCar(Integer[] slotNumber) {
-        if (slot[slotNumber[0]][slotNumber[1]] != null) {
-            slot[slotNumber[0]][slotNumber[1]] = null;
+    public boolean unParkCar(Integer slotNumber) {
+        if (detailsOfCarInSlot.get(slotNumber) != null) {
+            detailsOfCarInSlot.remove(slotNumber);
             return true;
         }
         return false;
