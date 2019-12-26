@@ -1,46 +1,31 @@
 package com.parkingLot;
 
-import java.util.ArrayList;
-
 public class ParkingLotSystem {
-    ArrayList detailsOfCarInSlot;
+    ParkingLotAvailabilityChecker availabilityChecker;
 
     public ParkingLotSystem() {
-        this.detailsOfCarInSlot = new ArrayList<>();
-        initializeEmptySlots();
-    }
-
-    private void initializeEmptySlots() {
-        for (int slots = 0; slots < 5; slots++) {
-            detailsOfCarInSlot.add(null);
-        }
-    }
-
-    public int giveEmptySlot() throws ParkingSlotException {
-        for (int slotNumber = 1; slotNumber <= 5; slotNumber++) {
-            if (detailsOfCarInSlot.get(slotNumber) == null) {
-                return slotNumber;
-            }
-        }
-        throw new ParkingSlotException(ParkingSlotException.ExceptionType.ALL_SLOTS_FULL, "all slots full,cannot park");
+        this.availabilityChecker = new ParkingLotAvailabilityChecker();
     }
 
     public boolean parkCar(int slotNumber, CarDao carDetails) throws ParkingSlotException {
-        if (detailsOfCarInSlot.get(slotNumber) == null) {
-            detailsOfCarInSlot.remove(slotNumber);
-            detailsOfCarInSlot.add(slotNumber, carDetails);
-            return true;
+        if (availabilityChecker.detailsOfCarInSlot.get(slotNumber) == null) {
+        addAndRemoveCarDetails(slotNumber, carDetails);
+        return true;
         }
         throw new ParkingSlotException(ParkingSlotException.ExceptionType.SLOT_IS_OCCUPIED, "This Slot is occupied !! " +
                 "Try Another one");
     }
 
     public boolean unParkCar(Integer slotNumber, CarDao carDetails) {
-        if (detailsOfCarInSlot.get(slotNumber) != null) {
-            detailsOfCarInSlot.remove(carDetails);
-            detailsOfCarInSlot.add(slotNumber,null);
-            return true;
+        if (availabilityChecker.detailsOfCarInSlot.get(slotNumber) != null) {
+           addAndRemoveCarDetails(slotNumber,null);
+           return true;
         }
         return false;
+    }
+
+    private void addAndRemoveCarDetails(int slotNumber, CarDao carDetails) {
+        availabilityChecker.detailsOfCarInSlot.remove(carDetails);
+        availabilityChecker.detailsOfCarInSlot.add(slotNumber, carDetails);
     }
 }
