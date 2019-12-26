@@ -11,23 +11,6 @@ public class parkingLotSystemTest {
     ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
 
     @Test
-    public void givenArrayAllocation_ShouldReturnCount5() {
-        int emptySlotSize = parkingLotSystem.availabilityChecker.detailsOfCarInSlot.size();
-        Assert.assertEquals(5, emptySlotSize);
-    }
-
-    @Test
-    public void givenSlotNumber_CheckIfEmpty() {
-        int expectedEmptySlot = 1;
-        try {
-            int emptySlot = parkingLotSystem.availabilityChecker.giveEmptySlot();
-            Assert.assertEquals(expectedEmptySlot, emptySlot);
-        } catch (ParkingSlotException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
     public void givenCarDetail_ShouldParkCarOnAnEmptySlot() {
         try {
             Integer emptySlot = parkingLotSystem.availabilityChecker.giveEmptySlot();

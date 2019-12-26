@@ -10,12 +10,6 @@ public class ParkingLotAvailabilityChecker {
         initializeEmptySlots();
     }
 
-    private void initializeEmptySlots() {
-        for (int slots = 0; slots < 5; slots++) {
-            detailsOfCarInSlot.add(null);
-        }
-    }
-
     public int giveEmptySlot() throws ParkingSlotException {
         for (int slotNumber = 1; slotNumber <= 5; slotNumber++) {
             if (detailsOfCarInSlot.get(slotNumber) == null) {
@@ -23,5 +17,33 @@ public class ParkingLotAvailabilityChecker {
             }
         }
         throw new ParkingSlotException(ParkingSlotException.ExceptionType.ALL_SLOTS_FULL, "all slots full,cannot park");
+    }
+
+    public boolean parkCar(int slotNumber, CarDao carDetails) throws ParkingSlotException {
+        if (detailsOfCarInSlot.get(slotNumber) == null) {
+            addAndRemoveCarDetails(slotNumber, carDetails);
+            return true;
+        }
+        throw new ParkingSlotException(ParkingSlotException.ExceptionType.SLOT_IS_OCCUPIED, "This Slot is occupied !! " +
+                "Try Another one");
+    }
+
+    public boolean unParkCar(Integer slotNumber, CarDao carDetails) {
+        if (detailsOfCarInSlot.get(slotNumber) != null) {
+            addAndRemoveCarDetails(slotNumber,null);
+            return true;
+        }
+        return false;
+    }
+
+    private void addAndRemoveCarDetails(int slotNumber, CarDao carDetails) {
+        detailsOfCarInSlot.remove(carDetails);
+        detailsOfCarInSlot.add(slotNumber, carDetails);
+    }
+
+    private void initializeEmptySlots() {
+        for (int slots = 0; slots < 5; slots++) {
+            detailsOfCarInSlot.add(null);
+        }
     }
 }
