@@ -8,10 +8,19 @@ public class CarDao
     String Model;
     String color;
     Date time;
-    String parkingType;
-    Integer slotNumber;
+    ParkingType parkingType;
+    Integer[] slotNumber;
 
     public CarDao() {
+    }
+
+    public CarDao(String numberPlate, String model, String color, Date time, ParkingType parkingType, Integer[] slotNumber) {
+        this.numberPlate = numberPlate;
+        Model = model;
+        this.color = color;
+        this.time = time;
+        this.parkingType = parkingType;
+        this.slotNumber = slotNumber;
     }
 
     public String getNumberPlate() {
@@ -30,11 +39,11 @@ public class CarDao
         return time;
     }
 
-    public String getParkingType() {
+    public ParkingType getParkingType() {
         return parkingType;
     }
 
-    public Integer getSlotNumber() {
+    public Integer[] getSlotNumber() {
         return slotNumber;
     }
 
@@ -54,11 +63,9 @@ public class CarDao
         this.time = time;
     }
 
-    public void setParkingType(String parkingType) {
-        this.parkingType = parkingType;
-    }
+    public void setParkingType(ParkingType parkingType) { this.parkingType = parkingType; }
 
-    public void setSlotNumber(Integer slotNumber) {
+    public void setSlotNumber(Integer[] slotNumber) {
         this.slotNumber = slotNumber;
     }
 }

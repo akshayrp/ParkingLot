@@ -7,15 +7,19 @@ public class ParkingLotSystem {
         this.slot = new CarDao[10][10];
     }
 
-    public Integer[] giveEmptySlot() {
-        for (int i = 1; i <= 100; i++) {
-            for (int j = 1; j <= 100; j++) {
-                if (slot[i][j] == null) {
-                    Integer[] emptySlot = {i, j};
+    public Integer[] giveEmptySlot(int firstSlotNumberOfParkingType) {
+        for (int line = 1; line <= 10; line++) {
+            for (int slot = firstSlotNumberOfParkingType; slot <= 10; slot++) {
+                if (this.slot[line][slot] == null) {
+                    Integer[] emptySlot = {line, slot};
                     return emptySlot;
                 }
             }
         }
         return null;
+    }
+
+    public void parkCar(Integer[] emptySlot, CarDao carDetails) {
+        slot[emptySlot[0]][emptySlot[1]] = carDetails;
     }
 }

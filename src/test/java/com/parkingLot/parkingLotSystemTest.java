@@ -3,6 +3,8 @@ package com.parkingLot;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Date;
+
 public class parkingLotSystemTest {
 
     ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
@@ -15,8 +17,9 @@ public class parkingLotSystemTest {
 
     @Test
     public void givenSlotNumber_CheckIfEmpty() {
-        Integer[] expectedEmptySlot = {1,1};
-        Integer[] emptySlot = parkingLotSystem.giveEmptySlot();
-        Assert.assertArrayEquals(expectedEmptySlot,emptySlot);
+        int firstSlotNumberOfParkingType = ParkingType.NORMAL.startingSlot;
+        Integer[] expectedEmptySlot = {1, 8};
+        Integer[] emptySlot = parkingLotSystem.giveEmptySlot(firstSlotNumberOfParkingType);
+        Assert.assertArrayEquals(expectedEmptySlot, emptySlot);
     }
 }
