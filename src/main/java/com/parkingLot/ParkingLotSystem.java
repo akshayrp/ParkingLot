@@ -7,10 +7,6 @@ public class ParkingLotSystem {
         this.parkingManager = parkingManager;
     }
 
-    /*public ParkingLotSystem() {
-        this.parkingManager = new CarParkingManager();
-    }*/
-
     public boolean parkCar(int slotNumber, CarDao carDetails){
         return parkingManager.parkCar(slotNumber, carDetails);
     }
