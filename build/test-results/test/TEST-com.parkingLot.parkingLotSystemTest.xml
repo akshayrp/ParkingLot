@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.parkingLot.parkingLotSystemTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-12-26T11:36:45" hostname="bridgelabz" time="0.004">
+<testsuite name="com.parkingLot.parkingLotSystemTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-27T04:18:40" hostname="bridgelabz" time="0.617">
   <properties/>
-  <testcase name="givenCarSlotNumber_WhenCarAvailable_UnParkCarShouldReturnTrue" classname="com.parkingLot.parkingLotSystemTest" time="0.002"/>
-  <testcase name="givenSlotNumber_CheckIfEmpty" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
-  <testcase name="givenArrayAllocation_ShouldReturnCount5" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
-  <testcase name="givenMultipleCarDetails_WhenParkingLotFull_ShouldInformParkingFull" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
-  <testcase name="givenCarSlotNumber_WhenCarAlreadyAvailable_ShouldNotAbleToParkCar" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
-  <testcase name="givenMultipleCarDetails_ShouldParkCarOnAnEmptySlot" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
-  <testcase name="givenCarDetail_ShouldParkCarOnAnEmptySlot" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
-  <testcase name="givenCarSlotNumber_WhenCarNotAvailable_UnParkCarShouldReturnFalse" classname="com.parkingLot.parkingLotSystemTest" time="0.0"/>
+  <testcase name="givenCarSlotNumber_ShouldUnParkCarOnThatSlot" classname="com.parkingLot.parkingLotSystemTest" time="0.615"/>
+  <testcase name="givenCarDetailsAndSlotNumber_ShouldParkCarOnThatSlot" classname="com.parkingLot.parkingLotSystemTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

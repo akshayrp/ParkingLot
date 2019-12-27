@@ -1,17 +1,21 @@
 package com.parkingLot;
 
 public class ParkingLotSystem {
-    ParkingLotAvailabilityChecker availabilityChecker;
+    CarParkingManager parkingManager;
 
-    public ParkingLotSystem() {
-        this.availabilityChecker = new ParkingLotAvailabilityChecker();
+    public void setParkingManager(CarParkingManager parkingManager) {
+        this.parkingManager = parkingManager;
     }
 
-    public boolean parkCar(int slotNumber, CarDao carDetails) throws ParkingSlotException {
-        return availabilityChecker.parkCar(slotNumber, carDetails);
+    /*public ParkingLotSystem() {
+        this.parkingManager = new CarParkingManager();
+    }*/
+
+    public boolean parkCar(int slotNumber, CarDao carDetails){
+        return parkingManager.parkCar(slotNumber, carDetails);
     }
 
     public boolean unParkCar(Integer slotNumber, CarDao carDetails) {
-        return availabilityChecker.unParkCar(slotNumber, carDetails);
+        return parkingManager.unParkCar(slotNumber, carDetails);
     }
 }

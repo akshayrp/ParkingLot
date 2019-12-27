@@ -2,10 +2,10 @@ package com.parkingLot;
 
 import java.util.ArrayList;
 
-public class ParkingLotAvailabilityChecker {
+public class CarParkingManager {
     ArrayList detailsOfCarInSlot;
 
-    public ParkingLotAvailabilityChecker() {
+    public CarParkingManager() {
         this.detailsOfCarInSlot = new ArrayList();
         initializeEmptySlots();
     }
