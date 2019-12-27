@@ -32,9 +32,9 @@ public class CarParkingManager {
         return false;
     }
 
-    private void addAndRemoveCarDetails(int slotNumber, CarDao carDetails, CarDao occupiedSlotData) {
+    private void addAndRemoveCarDetails(int slotNumber, CarDao toBeReplacedWith, CarDao occupiedSlotData) {
         detailsOfCarInSlot.remove(occupiedSlotData);
-        detailsOfCarInSlot.add(slotNumber, carDetails);
+        detailsOfCarInSlot.add(slotNumber, toBeReplacedWith);
     }
 
     private void initializeEmptySlots() {
