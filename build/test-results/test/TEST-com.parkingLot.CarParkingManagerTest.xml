@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.parkingLot.CarParkingManagerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-12-27T04:42:43" hostname="bridgelabz" time="0.002">
+  <properties/>
+  <testcase name="givenCarSlotNumber_WhenCarAvailable_UnParkCarShouldReturnTrue" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <testcase name="givenSlotNumber_CheckIfEmpty" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <testcase name="givenArrayAllocation_ShouldReturnCount5" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <testcase name="givenMultipleCarDetails_WhenParkingLotFull_ShouldInformParkingFull" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <testcase name="givenCarSlotNumber_WhenCarAlreadyAvailable_ShouldNotAbleToParkCar" classname="com.parkingLot.CarParkingManagerTest" time="0.001"/>
+  <testcase name="givenMultipleCarDetails_ShouldParkCarOnAnEmptySlot" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <testcase name="givenCarDetail_ShouldParkCarOnAnEmptySlot" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <testcase name="givenCarSlotNumber_WhenCarNotAvailable_UnParkCarShouldReturnFalse" classname="com.parkingLot.CarParkingManagerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -17,7 +17,7 @@ public class CarParkingManagerTest {
 
     @Test
     public void givenSlotNumber_CheckIfEmpty() {
-        int expectedEmptySlot = 1;
+        int expectedEmptySlot = 0;
         try {
             int emptySlot = availabilityChecker.giveEmptySlot();
             Assert.assertEquals(expectedEmptySlot, emptySlot);

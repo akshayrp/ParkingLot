@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.parkingLot.parkingLotSystemTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-12-27T04:20:32" hostname="bridgelabz" time="85.973">
+<testsuite name="com.parkingLot.parkingLotSystemTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-27T04:42:42" hostname="bridgelabz" time="0.218">
   <properties/>
-  <testcase name="givenCarSlotNumber_ShouldUnParkCarOnThatSlot" classname="com.parkingLot.parkingLotSystemTest" time="85.973">
-    <skipped/>
-  </testcase>
+  <testcase name="givenCarSlotNumber_ShouldUnParkCarOnThatSlot" classname="com.parkingLot.parkingLotSystemTest" time="0.216"/>
+  <testcase name="givenCarDetailsAndSlotNumber_ShouldParkCarOnThatSlot" classname="com.parkingLot.parkingLotSystemTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

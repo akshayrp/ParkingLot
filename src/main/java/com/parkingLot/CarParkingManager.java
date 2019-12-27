@@ -11,7 +11,7 @@ public class CarParkingManager {
     }
 
     public int giveEmptySlot() throws ParkingSlotException {
-        for (int slotNumber = 1; slotNumber <= 5; slotNumber++) {
+        for (int slotNumber = 0; slotNumber < 5; slotNumber++) {
             if (detailsOfCarInSlot.get(slotNumber) == null) {
                 return slotNumber;
             }
@@ -20,20 +20,20 @@ public class CarParkingManager {
     }
 
     public boolean parkCar(int slotNumber, CarDao carDetails) {
-            addAndRemoveCarDetails(slotNumber,carDetails);
+            addAndRemoveCarDetails(slotNumber,carDetails, null);
             return true;
     }
 
     public boolean unParkCar(Integer slotNumber, CarDao carDetails) {
         if (detailsOfCarInSlot.get(slotNumber) != null) {
-            addAndRemoveCarDetails(slotNumber, null);
+            addAndRemoveCarDetails(slotNumber, null, carDetails);
             return true;
         }
         return false;
     }
 
-    private void addAndRemoveCarDetails(int slotNumber, CarDao carDetails) {
-        detailsOfCarInSlot.remove(carDetails);
+    private void addAndRemoveCarDetails(int slotNumber, CarDao carDetails, CarDao occupiedSlotData) {
+        detailsOfCarInSlot.remove(occupiedSlotData);
         detailsOfCarInSlot.add(slotNumber, carDetails);
     }
 
